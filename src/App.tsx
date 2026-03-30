@@ -37,7 +37,7 @@ export default function App() {
   });
 
   const [newExpenseAmount, setNewExpenseAmount] = useState("");
-  const [newExpenseCategory, setNewExpenseCategory] = useState("");
+  const [newExpenseCategory, setNewExpenseCategory] = useState("Jedlo");
   const [newExpenseNote, setNewExpenseNote] = useState("");
 
   const [newFixedName, setNewFixedName] = useState("");
@@ -67,16 +67,16 @@ export default function App() {
       return;
     }
 
-    const newExpense: Expense = {
+    const expense: Expense = {
       id: Date.now(),
       amount,
       category: newExpenseCategory.trim(),
       note: newExpenseNote.trim(),
     };
 
-    setExpenses((prev) => [newExpense, ...prev]);
+    setExpenses((prev) => [expense, ...prev]);
     setNewExpenseAmount("");
-    setNewExpenseCategory("");
+    setNewExpenseCategory("Jedlo");
     setNewExpenseNote("");
   };
 
@@ -88,14 +88,14 @@ export default function App() {
       return;
     }
 
-    const newFixedExpense: FixedExpense = {
+    const fixedExpense: FixedExpense = {
       id: Date.now(),
       name: newFixedName.trim(),
       amount,
       dueDay,
     };
 
-    setFixedExpenses((prev) => [newFixedExpense, ...prev]);
+    setFixedExpenses((prev) => [fixedExpense, ...prev]);
     setNewFixedName("");
     setNewFixedAmount("");
     setNewFixedDay("");
@@ -126,7 +126,7 @@ export default function App() {
     setExpenses([]);
     setFixedExpenses([]);
     setNewExpenseAmount("");
-    setNewExpenseCategory("");
+    setNewExpenseCategory("Jedlo");
     setNewExpenseNote("");
     setNewFixedName("");
     setNewFixedAmount("");
